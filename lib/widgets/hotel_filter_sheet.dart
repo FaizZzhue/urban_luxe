@@ -427,3 +427,4 @@ class _SortChip extends StatelessWidget {
       ),
     );
   }
+}
