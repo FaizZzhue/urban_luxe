@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:urban_luxe/screens/start_screens.dart';
+import 'package:urban_luxe/screens/sign_in_screens.dart';
+import 'package:urban_luxe/screens/sign_up_screens.dart';
+import 'package:urban_luxe/screens/main_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -7,42 +11,24 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Urban Luxe',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        primaryColor: const Color(0xFF008A4E),
+        scaffoldBackgroundColor: const Color(0xFFF6F6F6),
+        useMaterial3: false,
       ),
-      home: const MyHomePage(),
-    );
-  }
-}
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
-
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-          ],
-        ),
-      ),
+      initialRoute: '/start',
+      routes: {
+        '/start': (context) => const StartScreens(),
+        '/signin': (context) => const SignInScreens(),
+        '/signup': (context) => const SignUpScreens(),
+        '/main': (context) => const MainScreen(),
+      },
     );
   }
 }
